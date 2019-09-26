@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Home - Agenda Kleber Fernando</title>
+	<title>Endereços - Agenda Kleber Fernando</title>
 	<!-- Favicon -->
 	<link href="../../assets/img/brand/favicon.png" rel="icon" type="image/png">
 	<!-- Fonts -->
@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<!-- Brand -->
-			<a class="navbar-brand pt-0" href="/">
+			<a class="navbar-brand pt-0" href="./index.html">
 				<img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
 			</a>
 			<!-- User -->
@@ -107,17 +107,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</form>
 				<!-- Navigation -->
 				<ul class="navbar-nav">
-					<li class="nav-item active">
-					<a class=" nav-link active " href="#"> <i class="ni ni-bullet-list-67 text-primary"></i> Todos
-					</a>
-					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="/contatos">
-							<i class="ni ni-single-02 text-yellow"></i> Contatos
+						<a class=" nav-link" href="#"> <i class="ni ni-bullet-list-67 text-primary"></i> Todos
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="/enderecos">
+						<a class="nav-link" href="/contatos">
+							<i class="ni ni-single-02 text-yellow"></i> Contatos
+						</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link active" href="/enderecos">
 							<i class="ni ni-pin-3 text-red"></i> Endereços
 						</a>
 					</li>
@@ -130,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
 			<div class="container-fluid">
 				<!-- Brand -->
-				<a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="/">Agenda KFH</a>
+				<a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">Agenda KFH</a>
 				<!-- Form -->
 				<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
 					<div class="form-group mb-0">
@@ -159,11 +159,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class=" dropdown-header noti-title">
 								<h6 class="text-overflow m-0">Meu contato</h6>
 							</div>
-							<a href="/usuario" class="dropdown-item">
+							<a href="./Theme/profile.html" class="dropdown-item">
 								<i class="ni ni-single-02"></i>
 								<span>Visualizar</span>
 							</a>
-							<a href="/usuario/editar" class="dropdown-item">
+							<a href="./Theme/profile.html" class="dropdown-item">
 								<i class="ni ni-settings-gear-65"></i>
 								<span>Editar</span>
 							</a>
@@ -177,101 +177,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
 		</div>
 		<div class="container-fluid mt--7">
-			<!-- Table -->
-			<div class="row">
-				<div class="col">
-					<div class="card shadow">
-						<div class="card-header border-0">
-							<h3 class="mb-0">Contatos</h3>
-						</div>
-						<div class="table-responsive">
-							<table class="table align-items-center table-flush">
-								<thead class="thead-light">
-								<tr>
-									<th scope="col">Nome</th>
-									<th scope="col">Telefone</th>
-									<th scope="col">Email</th>
-									<th scope="col">Relacionados</th>
-									<th scope="col">Notas</th>
-									<th scope="col"></th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<th scope="row">
-										<div class="media align-items-center">
-											<a href="#" class="avatar rounded-circle mr-3">
-												<img alt="Image placeholder" src="../../assets/img/theme/k_thumbs.png">
-											</a>
-											<div class="media-body">
-												<span class="mb-0 text-sm">Kleber Fernando</span>
-											</div>
-										</div>
-									</th>
-									<td>
-										(14) 99114-6621
-									</td>
-									<td>
-										<span> canedokleberfilho@gmail.com </span>
-									</td>
-									<td>
-										<div class="avatar-group">
-<!--											<a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
-<!--												<img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
-<!--											</a>-->
-<!--											<a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
-<!--												<img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
-<!--											</a>-->
-										</div>
-									</td>
-									<td>
-										<span> Gente boa, um cara muito bom! </span>
-									</td>
-									<td class="text-right">
-										<div class="dropdown">
-											<a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<i class="fas fa-ellipsis-v"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-												<a class="dropdown-item" href="#">Visualizar</a>
-												<a class="dropdown-item" href="#">Editar</a>
-												<a class="dropdown-item" href="#">Excluir</a>
-											</div>
-										</div>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-<!--						<div class="card-footer py-4">-->
-<!--							<nav aria-label="...">-->
-<!--								<ul class="pagination justify-content-end mb-0">-->
-<!--									<li class="page-item disabled">-->
-<!--										<a class="page-link" href="#" tabindex="-1">-->
-<!--											<i class="fas fa-angle-left"></i>-->
-<!--											<span class="sr-only">Previous</span>-->
-<!--										</a>-->
-<!--									</li>-->
-<!--									<li class="page-item active">-->
-<!--										<a class="page-link" href="#">1</a>-->
-<!--									</li>-->
-<!--									<li class="page-item">-->
-<!--										<a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>-->
-<!--									</li>-->
-<!--									<li class="page-item"><a class="page-link" href="#">3</a></li>-->
-<!--									<li class="page-item">-->
-<!--										<a class="page-link" href="#">-->
-<!--											<i class="fas fa-angle-right"></i>-->
-<!--											<span class="sr-only">Next</span>-->
-<!--										</a>-->
-<!--									</li>-->
-<!--								</ul>-->
-<!--							</nav>-->
-<!--						</div>-->
-					</div>
-				</div>
-			</div>
-			<!-- Dark table -->
 			<div class="row mt-5">
 				<div class="col">
 					<div class="card bg-default shadow">
