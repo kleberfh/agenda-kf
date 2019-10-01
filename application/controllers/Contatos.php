@@ -25,4 +25,33 @@ class Contatos extends CI_Controller {
     {
         $this->load->view('contatos/novo');
     }
+
+    public function incluir()
+    {
+        $this->ContatoModel->inserir();
+        redirect('contatos');
+    }
+
+    public function alterar($id)
+    {
+        $contato = $this->ContatoModel->getById($id);
+
+        $data = array(
+            'contato' => $contato[0]
+        );
+
+        $this->load->view('contatos/editar', $data);
+    }
+
+    public function editar()
+    {
+        $this->ContatoModel->editar();
+        redirect('contatos');
+    }
+
+    public function excluir($id)
+    {
+        $this->ContatoModel->deletar($id);
+        redirect('contatos');
+    }
 }

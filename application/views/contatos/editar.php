@@ -4,21 +4,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Novo contato - Agenda Kleber Fernando</title>
   <!-- Favicon -->
-  <link href="../../assets/img/theme/k_thumbs-nobg.png" rel="icon" type="image/png">
+  <link href="../../../assets/img/theme/k_thumbs-nobg.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="../../assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-  <link href="../../assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="../../../assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="../../../assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="../../assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link href="../../../assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
 </head>
 
 <body class="">
   <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
         <a class="navbar-brand pt-0" href="/agenda-kf">
-            <img src="../../assets/img/theme/k_thumbs.png" class="navbar-brand-img" alt="...">
+            <img src="../../../assets/img/theme/k_thumbs.png" class="navbar-brand-img" alt="...">
         </a>
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
             <ul class="navbar-nav">
@@ -57,20 +57,25 @@
               </div>
             </div>
             <div class="card-body">
-              <?php echo form_open('contatos/incluir') ?>
+              <?php echo form_open('contatos/editar') ?>
                 <h6 class="heading-small text-muted mb-4">Dados do contato</h6>
+                <?php echo('<input type="text" hidden id="id" name="id" value="'.$contato->id.'">')?>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="nome">Nome <bold>*</bold></label>
-                        <input type="text" id="nome" name="nome" class="form-control form-control-alternative" placeholder="Fulano da Silva">
+                        <label class="form-control-label" for="nome">Nome</label>
+                          <?php
+                            echo('<input type="text" id="nome" name="nome" class="form-control form-control-alternative" placeholder="Fulano da Silva" value="'.$contato->nome.'">');
+                          ?>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="telefone">Telefone <bold>*</bold></label>
-                        <input type="text" id="telefone" name="telefone" class="form-control form-control-alternative" placeholder="(12) 3456-7890">
+                        <label class="form-control-label" for="telefone">Telefone</label>
+                          <?php
+                          echo('<input type="text" id="telefone" name="telefone" class="form-control form-control-alternative" value="'.$contato->telefone.'">');
+                          ?>
                       </div>
                     </div>
                   </div>
@@ -78,7 +83,9 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="form-control-label" for="email">Email</label>
-                            <input type="email" id="email" name="email"  class="form-control form-control-alternative" placeholder="fulano@email.com">
+                            <?php
+                            echo('<input type="email" id="email" name="email"  class="form-control form-control-alternative" placeholder="fulano@email.com" value="'.$contato->email.'">');
+                            ?>
                         </div>
                     </div>
                   </div>
@@ -86,7 +93,9 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="notas">Comentário</label>
-                                <textarea id="notas" name="notas" rows="4" class="form-control form-control-alternative" placeholder="Fulano é um cara legal..."></textarea>
+                                <?php
+                                echo('<textarea id="notas" name="notas" rows="4" class="form-control form-control-alternative" placeholder="Fulano é um cara legal...">'.$contato->notas.'</textarea>');
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -108,11 +117,11 @@
     </div>
   </div>
   <!--   Core   -->
-  <script src="../../assets/js/plugins/jquery/dist/jquery.min.js"></script>
-  <script src="../../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../../../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
   <!--   Argon JS   -->
-  <script src="../../assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+  <script src="../../../assets/js/argon-dashboard.min.js?v=1.1.0"></script>
 </body>
 
 </html>

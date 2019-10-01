@@ -89,20 +89,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 foreach ($contatos as $key => $contato) {
                                     echo(
                                         '<tr>'.
-                                        '<th scope="row">
+                                        '<td scope="row">
                                                     <div class="mb-0 text-sm">'.
                                         $contato->nome
                                         .'</div>
-                                                </th>
-                                                <th>
+                                                </td>
+                                                <td>
                                                     <span>'.$contato->telefone.'</span>
-                                                </th>
-                                                <th>
+                                                </td>
+                                                <td>
                                                     <span>'.$contato->email.'</span>
-                                                </th>
-                                                <th>
+                                                </td>
+                                                <td>
                                                     <span>'.$contato->notas.'</span>
-                                                </th>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                      <a class="dropdown-item" href="contatos/alterar/'.$contato->id.'">Editar</a>
+                                                      <a class="dropdown-item text-red" href="contatos/excluir/'.$contato->id.'">Excluir</a>
+                                                    </div>
+                                                  </div>
+                                                </td>
                                                 '
                                         .'</tr>'
                                     );
