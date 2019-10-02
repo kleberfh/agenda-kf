@@ -63,13 +63,13 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="nome">Nome <bold>*</bold></label>
+                        <label class="form-control-label" for="nome">Nome</label>
                         <input type="text" id="nome" name="nome" class="form-control form-control-alternative" placeholder="Fulano da Silva">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="telefone">Telefone <bold>*</bold></label>
+                        <label class="form-control-label" for="telefone">Telefone</label>
                         <input type="text" id="telefone" name="telefone" class="form-control form-control-alternative" placeholder="(12) 3456-7890">
                       </div>
                     </div>

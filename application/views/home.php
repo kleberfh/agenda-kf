@@ -42,21 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</nav>
 	<div class="main-content">
-		<nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
-			<div class="container-fluid">
-				<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
-					<div class="form-group mb-0">
-						<div class="input-group input-group-alternative">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-search"></i></span>
-							</div>
-							<input class="form-control" placeholder="Buscar contato ou endereço..." type="text">
-						</div>
-					</div>
-				</form>
-			</div>
-		</nav>
-		<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8"></div>
+		<div class="header bg-gradient-primary pb-5 pt-5 pt-md-8"></div>
 		<div class="container-fluid mt--7">
 			<div class="row">
 				<div class="col">
@@ -68,11 +54,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<table class="table align-items-center table-flush">
 								<thead class="thead-light">
 								<tr>
-<!--									<th scope="col">Foto</th>-->
 									<th scope="col">Nome</th>
 									<th scope="col">Telefone</th>
 									<th scope="col">Email</th>
-<!--									<th scope="col">Relacionados</th>-->
 									<th scope="col">Notas</th>
 									<th scope="col"></th>
 								</tr>

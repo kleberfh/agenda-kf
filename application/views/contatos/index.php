@@ -6,20 +6,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<title>Contatos - Agenda Kleber Fernando</title>
 	<!-- Favicon -->
-    <link href="../assets/img/theme/k_thumbs-nobg.png" rel="icon" type="image/png">
+<!--    <link href="../assets/img/theme/k_thumbs-nobg.png" rel="icon" type="image/png">-->
+    <link href="<?php echo base_url('assets/img/theme/k_thumbs-nobg.png')?>" rel="icon" type="image/png">
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<!-- Icons -->
-	<link href="../assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-	<link href="../assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+	<link href="<?php echo base_url('assets/js/plugins/nucleo/css/nucleo.css') ?>" rel="stylesheet" />
+	<link href="<?php echo base_url('assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" />
 	<!-- CSS Files -->
-	<link href="../assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+	<link href="<?php echo base_url('assets/css/argon-dashboard.css?v=1.1.0') ?>" rel="stylesheet" />
 </head>
 <body>
 	<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
 		<div class="container-fluid">
             <a class="navbar-brand pt-0" href="/agenda-kf">
-                <img src="../assets/img/theme/k_thumbs.png" class="navbar-brand-img" alt="...">
+                <img src="<?php echo base_url('assets/img/theme/k_thumbs.png') ?>" class="navbar-brand-img" alt="...">
             </a>
 			<div class="collapse navbar-collapse" id="sidenav-collapse-main">
 				<ul class="navbar-nav">
@@ -44,13 +45,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="main-content">
 		<nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
 			<div class="container-fluid">
-				<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                <?php echo form_open('contatos/buscar', array('class' => 'navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto')) ?>
 					<div class="form-group mb-0">
 						<div class="input-group input-group-alternative">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-search"></i></span>
 							</div>
-							<input class="form-control" placeholder="Buscar contato..." type="text">
+							<input class="form-control" placeholder="Buscar contato..." type="text" name="query">
 						</div>
 					</div>
 				</form>
@@ -137,12 +138,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 	<!--   Core   -->
-	<script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script>
-	<script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="<?php echo base_url('assets/js/plugins/jquery/dist/jquery.min.js') ?>"></script>
+	<script src="<?php echo base_url('assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
 	<!--   Optional JS   -->
-	<script src="../assets/js/plugins/chart.js/dist/Chart.min.js"></script>
-	<script src="../assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+	<script src="<?php echo base_url('assets/js/plugins/chart.js/dist/Chart.min.js') ?>"></script>
+	<script src="<?php echo base_url('assets/js/plugins/chart.js/dist/Chart.extension.js') ?>"></script>
 	<!--   Argon JS   -->
-	<script src="../assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+	<script src="<?php echo base_url('assets/js/argon-dashboard.min.js?v=1.1.0') ?>"></script>
 </body>
 </html>

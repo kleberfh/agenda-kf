@@ -58,4 +58,17 @@ class ContatoModel extends CI_Model
     {
         $this->db->delete('contatos', array('id'=>$id));
     }
+
+    public function buscar($query)
+    {
+        $this->db->select('*');
+        $this->db->from('contatos');
+        $this->db->like('nome', $query);
+        $this->db->or_like('telefone', $query);
+        $this->db->or_like('email', $query);
+        $this->db->or_like('notas', $query);
+        $result = $this->db->get()->result();
+
+        return $result;
+    }
 }

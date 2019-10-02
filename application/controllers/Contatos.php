@@ -17,7 +17,6 @@ class Contatos extends CI_Controller {
             'contatos' => $contatos
         );
 
-
         $this->load->view('contatos/index', $data);
 	}
 
@@ -53,5 +52,16 @@ class Contatos extends CI_Controller {
     {
         $this->ContatoModel->deletar($id);
         redirect('contatos');
+    }
+
+    public function buscar()
+    {
+        $contatos = $this->ContatoModel->buscar($_POST['query']);
+
+        $data = array(
+            'contatos' => $contatos
+        );
+
+        $this->load->view('contatos/index', $data);
     }
 }
