@@ -105,8 +105,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<th scope="col">Rua</th>
 									<th scope="col">Número</th>
 									<th scope="col">CEP</th>
-<!--									<th scope="col">Residentes</th>-->
 									<th scope="col">Complemento</th>
+									<th scope="col">Cidade</th>
+									<th scope="col">Estado</th>
 									<th scope="col"></th>
 								</tr>
 								</thead>
@@ -128,6 +129,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </th>
                                                 <th>
                                                     <span>'.$endereco->complemento.'</span>
+                                                </th>
+                                                <th>
+                                                    <span>'.$endereco->cidade.'</span>
+                                                </th>
+                                                <th>
+                                                    <span>'.$endereco->estado.'</span>
                                                 </th>
                                                 '
                                         .'</tr>'

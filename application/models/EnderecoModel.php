@@ -22,16 +22,16 @@ class EnderecoModel extends CI_Model
 
     public function inserir()
     {
-        $this->nome    = $_POST['nome'];
-        $this->telefone  = $_POST['telefone'];
-        $this->email  = $_POST['email'];
-        $this->notas     = $_POST['notas'];
+        $this->rua    = $_POST['rua'];
+        $this->numero  = $_POST['numero'];
+        $this->cep  = $_POST['cep'];
+        $this->complemento     = $_POST['complemento'];
 
         $dados = array(
-            'nome'=> $_POST['nome'],
-            'telefone'=> $_POST['telefone'],
-            'email'=> $_POST['email'],
-            'notas'=> $_POST['notas']
+            'rua'=> $_POST['rua'],
+            'numero'=> $_POST['numero'],
+            'cep'=> $_POST['cep'],
+            'complemento'=> $_POST['complemento']
         );
 
         $this->db->insert('contatos', $dados);
@@ -39,16 +39,16 @@ class EnderecoModel extends CI_Model
 
     public function editar()
     {
-        $this->nome    = $_POST['nome'];
-        $this->telefone  = $_POST['telefone'];
-        $this->email  = $_POST['email'];
-        $this->notas     = $_POST['notas'];
+        $this->rua    = $_POST['rua'];
+        $this->numero  = $_POST['numero'];
+        $this->cep  = $_POST['cep'];
+        $this->complemento     = $_POST['complemento'];
 
         $dados = array(
-            'nome'=> $_POST['nome'],
-            'telefone'=> $_POST['telefone'],
-            'email'=> $_POST['email'],
-            'notas'=> $_POST['notas']
+            'rua'=> $_POST['rua'],
+            'numero'=> $_POST['numero'],
+            'cep'=> $_POST['cep'],
+            'complemento'=> $_POST['complemento']
         );
 
         $this->db->update('contatos', $dados, array('id' => $_POST['id']));
