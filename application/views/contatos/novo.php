@@ -10,8 +10,22 @@
   <!-- Icons -->
   <link href="../../assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
   <link href="../../assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="../../assets/js/plugins/toasty/build/toastr.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="../../assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <style>
+      .error{
+          display: none;
+          font-size: small;
+      }
+      .error_show{
+          color: red;
+          font-size: small;
+      }
+      input.invalid {
+          border: 1px solid red;
+      }
+  </style>
 </head>
 
 <body class="">
@@ -57,28 +71,31 @@
               </div>
             </div>
             <div class="card-body">
-              <?php echo form_open('contatos/incluir') ?>
+              <?php echo form_open('contatos/incluir', array('id' => 'contact_form')) ?>
                 <h6 class="heading-small text-muted mb-4">Dados do contato</h6>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="nome">Nome</label>
+                        <label class="form-control-label" for="nome">Nome *</label>
                         <input type="text" id="nome" name="nome" class="form-control form-control-alternative" placeholder="Fulano da Silva">
+                        <span id="nome_error" class="error" >nome precisa estar preenchido</span>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="telefone">Telefone</label>
+                        <label class="form-control-label" for="telefone">Telefone *</label>
                         <input type="text" id="telefone" name="telefone" class="form-control form-control-alternative" placeholder="(12) 3456-7890">
+                          <span id="telefone_error" class="error" >telefone inválido</span>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="form-control-label" for="email">Email</label>
+                            <label class="form-control-label" for="email">Email *</label>
                             <input type="email" id="email" name="email"  class="form-control form-control-alternative" placeholder="fulano@email.com">
+                            <span id="email_error" class="error">email inválido</span>
                         </div>
                     </div>
                   </div>
@@ -109,10 +126,99 @@
   </div>
   <!--   Core   -->
   <script src="../../assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../../assets/js/plugins/jquery-mask/dist/jquery.mask.min.js"></script>
+  <script src="../../assets/js/plugins/toasty/build/toastr.min.js"></script>
   <script src="../../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
   <!--   Argon JS   -->
   <script src="../../assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+
+  <script>
+      // Mascara do telefone
+      /**
+       * @return {string}
+       */
+      var SPMaskBehavior = function (val) {
+          return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+      },
+      spOptions = {
+          onKeyPress: function(val, e, field, options) {
+              field.mask(SPMaskBehavior.apply({}, arguments), options);
+          }
+      };
+      $(document).ready(function() {
+          $('#telefone').mask(SPMaskBehavior, spOptions);
+      });
+
+      // Validações
+      let hasErrors = 1;
+      let errors = [];
+
+      $('#nome').on('input', function () {
+          const input = $(this);
+          const name = input.val();
+
+          if (name) {
+              errors['nome'] = false;
+              input.removeClass("invalid");
+              $('#nome_error').removeClass("error_show").addClass("error");
+          } else {
+              errors['nome'] = true;
+              input.addClass("invalid");
+              $('#nome_error').removeClass("error").addClass("error_show")
+          }
+      });
+
+      $('#telefone').on('input', function () {
+          const input = $(this);
+          const regEx = /\(\d{2}\)\s\d{4,5}\-\d{4}/;
+          const tel = regEx.test(input.val());
+
+          if (tel) {
+              errors['telefone'] = false;
+              input.removeClass("invalid");
+              $('#telefone_error').removeClass("error_show").addClass("error");
+          } else {
+              errors['telefone'] = true;
+              input.addClass("invalid");
+              $('#telefone_error').removeClass("error").addClass("error_show");
+          }
+      });
+
+      $('#email').on('input', function() {
+          const input= $(this);
+          const regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          const email = regEx.test(input.val());
+
+          if(email){
+              errors['email'] = false;
+              input.removeClass("invalid").addClass("valid");
+              $('#email_error').removeClass("error_show").addClass("error");
+          } else{
+              errors['email'] = true;
+              input.removeClass("valid").addClass("invalid");
+              $('#email_error').removeClass("error").addClass("error_show");
+          }
+      });
+
+      $('#contact_form').on('submit', function (e) {
+          if (!errors['nome'] && !errors['telefone'] && !errors['email']) {
+              e.preventDefault();
+              toastr.warning('Os campos marcados por * devem estar preenchidos.');
+              return
+          }
+          errors.map(error => {
+              console.log(error);
+              if (error === true) {
+                  e.preventDefault();
+                  toastr.warning('Todos os campos marcados por * devem estar preenchidos.');
+                  return
+              }
+          });
+          e.preventDefault();
+      });
+
+  </script>
 </body>
 
 </html>
