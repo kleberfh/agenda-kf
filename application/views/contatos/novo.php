@@ -77,14 +77,14 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="nome">Nome *</label>
+                        <label class="form-control-label" for="nome">Nome <span style="color: red">*</span></label>
                         <input type="text" id="nome" name="nome" class="form-control form-control-alternative" placeholder="Fulano da Silva">
                         <span id="nome_error" class="error" >nome precisa estar preenchido</span>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="telefone">Telefone *</label>
+                        <label class="form-control-label" for="telefone">Telefone <span style="color: red">*</span></label>
                         <input type="text" id="telefone" name="telefone" class="form-control form-control-alternative" placeholder="(12) 3456-7890">
                           <span id="telefone_error" class="error" >telefone inválido</span>
                       </div>
@@ -93,7 +93,7 @@
                   <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="form-control-label" for="email">Email *</label>
+                            <label class="form-control-label" for="email">Email <span style="color: red">*</span></label>
                             <input type="email" id="email" name="email"  class="form-control form-control-alternative" placeholder="fulano@email.com">
                             <span id="email_error" class="error">email inválido</span>
                         </div>
@@ -150,6 +150,9 @@
           $('#telefone').mask(SPMaskBehavior, spOptions);
       });
 
+      toastr.options.closeButton = true;
+      toastr.options.showMethod = 'slideDown';
+
       // Validações
       let hasErrors = 1;
       let errors = [];
@@ -159,11 +162,11 @@
           const name = input.val();
 
           if (name) {
-              errors['nome'] = false;
+              errors['nome'] = true;
               input.removeClass("invalid");
               $('#nome_error').removeClass("error_show").addClass("error");
           } else {
-              errors['nome'] = true;
+              errors['nome'] = false;
               input.addClass("invalid");
               $('#nome_error').removeClass("error").addClass("error_show")
           }
@@ -175,11 +178,11 @@
           const tel = regEx.test(input.val());
 
           if (tel) {
-              errors['telefone'] = false;
+              errors['telefone'] = true;
               input.removeClass("invalid");
               $('#telefone_error').removeClass("error_show").addClass("error");
           } else {
-              errors['telefone'] = true;
+              errors['telefone'] = false;
               input.addClass("invalid");
               $('#telefone_error').removeClass("error").addClass("error_show");
           }
@@ -191,31 +194,30 @@
           const email = regEx.test(input.val());
 
           if(email){
-              errors['email'] = false;
+              errors['email'] = true;
               input.removeClass("invalid").addClass("valid");
               $('#email_error').removeClass("error_show").addClass("error");
           } else{
-              errors['email'] = true;
+              errors['email'] = false;
               input.removeClass("valid").addClass("invalid");
               $('#email_error').removeClass("error").addClass("error_show");
           }
       });
 
       $('#contact_form').on('submit', function (e) {
-          if (!errors['nome'] && !errors['telefone'] && !errors['email']) {
-              e.preventDefault();
-              toastr.warning('Os campos marcados por * devem estar preenchidos.');
-              return
+          if (!errors['nome']) {
+            e.preventDefault();
+            toastr.warning('O nome não pode ser vazio ou é inválido');
+            return
+          } else if (!errors['telefone']) {
+            e.preventDefault();
+            toastr.warning('O telefone não pode ser vazio ou é inválido');
+            return
+          } else if (!errors['email']) {
+            e.preventDefault();
+            toastr.warning('O email não pode ser vazio ou é inválido');
+            return
           }
-          errors.map(error => {
-              console.log(error);
-              if (error === true) {
-                  e.preventDefault();
-                  toastr.warning('Todos os campos marcados por * devem estar preenchidos.');
-                  return
-              }
-          });
-          e.preventDefault();
       });
 
   </script>
